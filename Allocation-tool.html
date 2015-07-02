@@ -1,0 +1,91 @@
+<head>
+	<title>Allocation-tool</title>
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script type="text/javascript">
+      function initialize() {
+		var mapOptions = {
+	        center: new google.maps.LatLng(57.140682, -2.106124),
+	        zoom: 9,
+	        mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+
+<body>
+	{{> header}}
+
+	{{> main}}
+
+</body>
+
+<template name="header">
+  <header>
+  	<img src="/img/logo.png" alt="logo ARR Craib">
+  </header>
+</template>
+
+<template name="main">
+  <div id="main">
+  	{{> leftPart}}
+
+  	{{> middlePart}}
+
+  	{{> rightPart}}  
+  </div>
+</template>
+
+<template name="leftPart">
+	<div id="left">
+		<ul>
+			{{#each trucks}}
+				{{> truckItem}}
+			{{/each}}
+		</ul>
+	</div>
+</template>
+
+<template name="middlePart">
+	<div id="center">
+		{{> map}}
+	</div>
+</template>
+
+<template name="rightPart">
+	<div id="right">
+		{{> selectedTruck}}
+		{{#each jobs}}
+			{{> jobItem}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="truckItem">
+<li class="truckItem">
+	<h3>{{id}}</h3>
+	<span><b>Truck : </b>{{name}}</span>
+	<span><b>Location : </b>{{location}}</span>
+	<span><b>Driver : </b>{{driver}}</span>
+	<span><b>Trailer : </b>{{trailer}}</span>
+</li>
+</template>
+
+<template name="map">
+	<div id="map">
+		<div id="map-canvas">
+		</div>
+	</div>
+</template>
+
+<template name="selectedTruck">
+	<h3>{{id}}</h3>
+	<span><b>Truck : </b>{{name}}</span>
+	<span><b>Location : </b>{{location}}</span>
+	<span><b>Driver : </b>{{driver}}</span>
+	<span><b>Trailer : </b>{{trailer}}</span>
+</template>
+
+<template name="jobItem">
+</template>
