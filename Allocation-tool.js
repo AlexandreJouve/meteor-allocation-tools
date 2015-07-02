@@ -8,6 +8,13 @@ if (Meteor.isClient) {
 		}
 	});
 
+	Template.selectedTruck.helpers(
+	{
+		selectedTruck: function () {
+			return Trucks.findOne({ id:"0tx4556"});
+		}
+	});
+
 }
 
 if (Meteor.isServer) {

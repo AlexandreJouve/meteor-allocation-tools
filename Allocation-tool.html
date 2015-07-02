@@ -63,13 +63,13 @@
 </template>
 
 <template name="truckItem">
-<li class="truckItem">
-	<h3>{{id}}</h3>
-	<span><b>Truck : </b>{{name}}</span>
-	<span><b>Location : </b>{{location}}</span>
-	<span><b>Driver : </b>{{driver}}</span>
-	<span><b>Trailer : </b>{{trailer}}</span>
-</li>
+	<li class="truckItem">
+		<h3>{{id}}</h3>
+		<span><b>Truck : </b>{{name}}</span>
+		<span><b>Location : </b>{{location}}</span>
+		<span><b>Driver : </b>{{driver}}</span>
+		<span><b>Trailer : </b>{{trailer}}</span>
+	</li>
 </template>
 
 <template name="map">
@@ -80,11 +80,13 @@
 </template>
 
 <template name="selectedTruck">
-	<h3>{{id}}</h3>
-	<span><b>Truck : </b>{{name}}</span>
-	<span><b>Location : </b>{{location}}</span>
-	<span><b>Driver : </b>{{driver}}</span>
-	<span><b>Trailer : </b>{{trailer}}</span>
+	{{#if selectedTruck}}
+		<h3>{{selectedTruck.id}}</h3>
+		<span><b>Truck : </b>{{selectedTruck.name}}</span>
+		<span><b>Location : </b>{{selectedTruck.location}}</span>
+		<span><b>Driver : </b>{{selectedTruck.driver}}</span>
+		<span><b>Trailer : </b>{{selectedTruck.trailer}}</span>
+	{{/if}}
 </template>
 
 <template name="jobItem">
